@@ -1,5 +1,11 @@
-const Tasks = () => {
-  return <h1>Task</h1>;
-};
+import TaskList from '../components/taskList.js';
 
-export default Tasks;
+function task() {
+  return (
+    <div ClassName='App'>
+      <TaskList />
+    </div>
+  );
+}
+
+export default task;

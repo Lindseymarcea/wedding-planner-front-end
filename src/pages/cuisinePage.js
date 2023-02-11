@@ -1,55 +1,86 @@
+import axios from 'axios';
 import React from 'react';
 
 export default class Cuisine extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { cuisine: [] };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log('Component did Mount');
+    axios.get('http://127.0.0.1:8000/registry/cuisine/').then((res) => {
+      console.log(res);
+      this.setState({ cuisine: res.data });
+    });
+  }
+  // .catch((err) => console.log(err)); was giving me an error
+
+  // .then((response) => response.json())
+  // returns promise-convert json object into javascript object
+  // .then((data) => console.log(data))
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ cuisine: event.target.cuisine });
   }
 
   handleSubmit(event) {
-    alert('Cuisine Selection Submitted: ' + this.state.value);
+    alert('Cuisine Selection Submitted: ' + this.state.cuisine);
     event.preventDefault();
   }
   render() {
+    const { cuisine } = this.state;
+    console.log(cuisine);
+    console.log(this.state);
     return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input
-              type='text'
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Choose your Cuisine Selection:
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value=''>
-                Grilled Chicken & Asparagus with Mango Salsa
-              </option>
-              <option value='Fettucini Alfredo with peas & bread'>
-                Fettucini Alfredo with peas & bread
-              </option>
-              <option value='Portobello Mushroom Wellington'>
-                Portobello Mushroom Wellington
-              </option>
-              <option value='Salmon and Cheesy Risotto'>
-                Salmon and Cheesy Risotto
-              </option>
-            </select>
-          </label>
-          <input type='submit' value='Submit' />
-        </form>
-        <h1>Cuisine Selection</h1>
-      </>
+      // <>
+      //   <p>Choose your Cuisine Selection:</p>
+      //   <form onSubmit={this.handleSubmit}>
+      //     <label>
+      //       Name:
+      //       <input
+      //       type='text'
+      //       cuisine={this.state.cuisine}
+      //       onChange={this.handleChange}
+      //       />
+      <ul>
+        {cuisine.map((item) => (
+          <li key={item.title}>{item.allergens}</li>
+        ))}
+      </ul>
     );
   }
 }
+
+// if statement that says if their is an allergen- show title
+// changed line 53 from {this.state.cuisine.map((cuisines) => ( to cuisine.map(cuisines => ()) then uncommented line 40
+// line 7, 22, 26, 39 changing value to cuisine, next line closing tag
+// line 47- closing label, 48- closing form
+/* </label>
+            <label>
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value=''>
+                  Grilled Chicken & Asparagus with Mango Salsa
+                </option>
+                <option value='Fettucini Alfredo with peas & bread'>
+                  Fettucini Alfredo with peas & bread
+                </option>
+                <option value='Portobello Mushroom Wellington'>
+                  Portobello Mushroom Wellington
+                </option>
+                <option value='Salmon and Cheesy Risotto'>
+                  Salmon and Cheesy Risotto
+                </option>
+              </select>
+            </label>
+            <input type='submit' value='Submit' />
+          </form>
+        </main>
+      </>
+//     );
+//   }
+// } */
+
+/* // lines 30,& 43-49 */

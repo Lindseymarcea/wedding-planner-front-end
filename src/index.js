@@ -1,20 +1,15 @@
 import React from 'react';
-// import ReactDOM from 'react-dom/client';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import { BrowserRouter } from 'react-router-dom';
-// import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  // <BrowserRouter>
-  <App />,
-  // </BrowserRouter>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
-// serviceWorker.unregister();
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
-// lines 3,6,7,10-15,17 all new code reently changed
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
