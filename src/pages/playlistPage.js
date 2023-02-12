@@ -10,7 +10,11 @@ export default class Playlist extends React.Component {
     this.setState({ playlist: event.target.playlist });
   };
 
-  handleSubmit = (event) => {
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  handleSubmit(event) {
+    alert('Playlist Selection Submitted: ' + this.state.playlist);
     event.preventDefault();
 
     const user = {
@@ -18,27 +22,29 @@ export default class Playlist extends React.Component {
     };
 
     axios
-      .post('http://127.0.0.1:8000/registry/playlist/', { user })
+      .post('http://127.0.0.1:8000/registry/song_choice/', { user })
       .then((res) => {
         console.log(res);
         console.log(res.data);
       });
-  };
+  }
 
   render() {
     return (
       <div>
+        <p> Submit your playlist song here!</p>
         <form onSubmit={this.handleSubmit}>
           <label>
             Title:
             <input type='text' name='name' onChange={this.handleChange} />
           </label>
+          <label>
+            Musician:
+            <input type='text' name='name' onChange={this.handleChange} />
+          </label>
+          <input type='submit' value='Submit' />
+          {/* <button type='submit'>Submit</button> */}
         </form>
-        <label>
-          Musician:
-          <input type='text' name='name' onChange={this.handleChange} />
-        </label>
-        <button type='submit'>Submit</button>
       </div>
     );
   }

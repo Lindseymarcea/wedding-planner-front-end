@@ -52,33 +52,35 @@ export default class Cuisine extends React.Component {
   }
 }
 
-// if statement that says if their is an allergen- show title
-// changed line 53 from {this.state.cuisine.map((cuisines) => ( to cuisine.map(cuisines => ()) then uncommented line 40
-// line 7, 22, 26, 39 changing value to cuisine, next line closing tag
-// line 47- closing label, 48- closing form
-/* </label>
-            <label>
-              <select value={item.title.id} onChange={this.handleChange}>
-                <option value=''>
-                  Grilled Chicken & Asparagus with Mango Salsa
-                </option>
-                <option value='Fettucini Alfredo with peas & bread'>
-                  Fettucini Alfredo with peas & bread
-                </option>
-                <option value='Portobello Mushroom Wellington'>
-                  Portobello Mushroom Wellington
-                </option>
-                <option value='Salmon and Cheesy Risotto'>
-                  Salmon and Cheesy Risotto
-                </option>
-              </select>
-            </label>
-            <input type='submit' value='Submit' />
-          </form>
-        </main>
-      </>
+// <label>
+//    <select value={item.title} - {item.allergens} onChange={this.handleChange}>
+// continue with options or no?
+// </select>
+// </label>
+// <input type='submit' value='submit' />
+// lines 85-90 ending/closing tags
+
+//  </label>
+//             <label>
+//               <select value={item.title.id} onChange={this.handleChange}>
+//                 <option value=''>
+//                   Grilled Chicken & Asparagus with Mango Salsa
+//                 </option>
+//                 <option value='Fettucini Alfredo with peas & bread'>
+//                   Fettucini Alfredo with peas & bread
+//                 </option>
+//                 <option value='Portobello Mushroom Wellington'>
+//                   Portobello Mushroom Wellington
+//                 </option>
+//                 <option value='Salmon and Cheesy Risotto'>
+//                   Salmon and Cheesy Risotto
+//                 </option>
+//               </select>
+//             </label>
+//             <input type='submit' value='Submit' />
+//           </form>
+//         </main>
+//       </>
 //     );
 //   }
-// } */
-
-/* // lines 30,& 43-49 */
+// }
