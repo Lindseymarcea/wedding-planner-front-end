@@ -17,11 +17,7 @@ export default class Cuisine extends React.Component {
       this.setState({ cuisine: res.data });
     });
   }
-  // .catch((err) => console.log(err)); was giving me an error
 
-  // .then((response) => response.json())
-  // returns promise-convert json object into javascript object
-  // .then((data) => console.log(data))
   handleChange(event) {
     this.setState({ cuisine: event.target.cuisine });
   }
@@ -46,8 +42,10 @@ export default class Cuisine extends React.Component {
       //       onChange={this.handleChange}
       //       />
       <ul>
-        {cuisine.map((item) => (
-          <li key={item.title}>{item.allergens}</li>
+        {cuisine.map((item, i) => (
+          <li key={i}>
+            {item.title} - {item.allergens}
+          </li>
         ))}
       </ul>
     );
@@ -60,7 +58,7 @@ export default class Cuisine extends React.Component {
 // line 47- closing label, 48- closing form
 /* </label>
             <label>
-              <select value={this.state.value} onChange={this.handleChange}>
+              <select value={item.title.id} onChange={this.handleChange}>
                 <option value=''>
                   Grilled Chicken & Asparagus with Mango Salsa
                 </option>

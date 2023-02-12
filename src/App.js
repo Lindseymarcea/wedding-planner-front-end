@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Cuisine from './pages/cuisinePage';
 import HomePage from './pages/homePage';
 import GiftRegistry from './pages/giftRegistryPage';
-// import Guestlist from './pages/guestlistPage';
+import Guestlist from './pages/guestlistPage';
 // import Photo from './pages/photoPage';
 import TaskList from './pages/taskListPage';
 import VisionBoard from './pages/visionBoardPage';
@@ -37,8 +37,7 @@ export default class App extends React.Component {
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/cuisine' element={<Cuisine />} />
             <Route exact path='/giftregistry' element={<GiftRegistry />} />
-            {/* <Route exact path='/guestlist' element={<Guestlist />} /> */}
-            {/* <Route exact path='/photo' element={<Photo />} /> */}
+            <Route exact path='/guestlist' element={<Guestlist />} />
             <Route exact path='/playlist' element={<Playlist />} />
             <Route exact path='/tasklist' element={<TaskList />} />
             <Route exact path='/visionboard' element={<VisionBoard />} />

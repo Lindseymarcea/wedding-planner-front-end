@@ -1,45 +1,45 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class Playlist extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
+  state = {
+    playlist: [],
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  handleChange = (event) => {
+    this.setState({ playlist: event.target.playlist });
+  };
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
-    alert('Name Submitted: ' + this.state.value);
+  handleSubmit = (event) => {
     event.preventDefault();
-  }
+
+    const user = {
+      playlist: this.state.playlist,
+    };
+
+    axios
+      .post('http://127.0.0.1:8000/registry/playlist/', { user })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
+  };
+
   render() {
     return (
-      <>
-        <h1>Do you have any Playlist Requests?</h1>
-        <form onSubmit={this.handleSubmit}> </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Title:
+            <input type='text' name='name' onChange={this.handleChange} />
+          </label>
+        </form>
         <label>
-          Title:
-          <input
-            type='text'
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
+          Musician:
+          <input type='text' name='name' onChange={this.handleChange} />
         </label>
-        <form onSubmit={this.handleSubmit}> </form>
-        <label>
-          Artist:
-          <input
-            type='text'
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-      </>
+        <button type='submit'>Submit</button>
+      </div>
     );
   }
 }
