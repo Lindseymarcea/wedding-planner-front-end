@@ -1,8 +1,8 @@
-// const Photo = () => {
-//   return <h1>Photo</h1>;
-// };
+const Photo = () => {
+  return <h1>Photo</h1>;
+};
 
-// export default Photo;
+export default Photo;
 // import React from 'react';
 // import ImageUploader from 'react-images-uploading';
 

@@ -7,7 +7,7 @@ import Cuisine from './pages/cuisinePage';
 import HomePage from './pages/homePage';
 import GiftRegistry from './pages/giftRegistryPage';
 import Guestlist from './pages/guestlistPage';
-// import Photo from './pages/photoPage';
+import Photo from './pages/photoPage';
 import TaskList from './pages/taskListPage';
 import VisionBoard from './pages/visionBoardPage';
 import Playlist from './pages/playlistPage';
@@ -36,14 +36,15 @@ export default class App extends React.Component {
           <Routes>
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/cuisine' element={<Cuisine />} />
-            <Route exact path='/giftregistry' element={<GiftRegistry />} />
+            <Route exact path='/gift' element={<GiftRegistry />} />
+            <Route exact path='/photo' element={<Photo />} />
             <Route exact path='/guestlist' element={<Guestlist />} />
             <Route exact path='/playlist' element={<Playlist />} />
             <Route exact path='/tasklist' element={<TaskList />} />
             <Route exact path='/visionboard' element={<VisionBoard />} />
           </Routes>
           <Link to='/cuisine'>Cuisine Selection</Link>
-          <Link to='/giftregistry'>Gift Registry</Link>
+          <Link to='/gift'>Gift Registry</Link>
           <Link to='/guestlist'>RSVP</Link>
           <Link to='/photo'>Upload Memories</Link>
           <Link to='/playlist'>Playlist</Link>
