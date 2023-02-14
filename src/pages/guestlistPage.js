@@ -35,7 +35,7 @@ export default class Guestlist extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Search for Your Name:
+            Enter Your Name:
             <input type='text' name='name' onChange={this.handleChange} />
           </label>
         </form>

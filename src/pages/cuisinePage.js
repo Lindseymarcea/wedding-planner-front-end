@@ -1,15 +1,23 @@
 import axios from 'axios';
 import React from 'react';
+import './/cuisine.css';
 
 export default class Cuisine extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { cuisine: [] };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { cuisine: [] };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  //   this.handleChange = this.handleChange.bind(this);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
+  state = {
+    cuisine: [],
+    task: {
+      title: '',
+      allergens: '',
+    },
+  };
   componentDidMount() {
     console.log('Component did Mount');
     axios.get('http://127.0.0.1:8000/registry/cuisine/').then((res) => {
@@ -18,9 +26,12 @@ export default class Cuisine extends React.Component {
     });
   }
 
-  handleChange(event) {
-    this.setState({ cuisine: event.target.cuisine });
-  }
+  // handleChange(event) {
+  //   this.setState({ cuisine: event.target.value });
+  // }
+  // handleChangeInput(event) {
+  //   this.setState({ title: event.target.name });
+  // }
 
   handleSubmit(event) {
     alert('Cuisine Selection Submitted: ' + this.state.cuisine);
@@ -31,36 +42,67 @@ export default class Cuisine extends React.Component {
     console.log(cuisine);
     console.log(this.state);
     return (
-      // <>
-      //   <p>Choose your Cuisine Selection:</p>
-      //   <form onSubmit={this.handleSubmit}>
-      //     <label>
-      //       Name:
-      //       <input
-      //       type='text'
-      //       cuisine={this.state.cuisine}
-      //       onChange={this.handleChange}
-      //       />
-      <ul>
-        {cuisine.map((item, i) => (
-          <li key={i}>
-            {item.title} - {item.allergens}
-          </li>
-        ))}
-      </ul>
+      <>
+        <p id='Header'>Choose your Cuisine Selection:</p>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input
+              type='text'
+              cuisine={this.state.cuisine}
+              onChange={this.handleChangeInput}
+            />
+          </label>
+          <br />
+          <select
+            className='form-control'
+            value={cuisine}
+            // onChange={this.handleChange}
+            onChange={(event) => {
+              this.setState({
+                ...this.state,
+                cuisine: {
+                  ...this.state.cuisine,
+                  title: event.target.title,
+                  allergens: event.allergens,
+                },
+              });
+            }}
+          >
+            <option value=''>Choose Cuisine Selection</option>
+
+            {cuisine.map((cuisine) => (
+              <option value={cuisine.id} key={cuisine.id}>
+                {cuisine.title} ({cuisine.allergens})
+              </option>
+            ))}
+          </select>
+        </form>
+      </>
+      //   <ul>
+      //     {cuisine.map((item, i) => (
+      //       <li key={i}>
+      //         {item.title} - {item.allergens}
+      //       </li>
+      //     ))}
+      //   </ul>
+      // );
     );
   }
 }
 
-// <label>
+{
+  /* // <label>
 //    <select value={item.title} - {item.allergens} onChange={this.handleChange}>
 // continue with options or no?
 // </select>
 // </label>
 // <input type='submit' value='submit' />
-// lines 85-90 ending/closing tags
+// lines 85-90 ending/closing tags */
+}
 
-//  </label>
+{
+  /* //  </label>
 //             <label>
 //               <select value={item.title.id} onChange={this.handleChange}>
 //                 <option value=''>
@@ -79,8 +121,5 @@ export default class Cuisine extends React.Component {
 //             </label>
 //             <input type='submit' value='Submit' />
 //           </form>
-//         </main>
-//       </>
-//     );
-//   }
-// }
+//         </main> */
+}

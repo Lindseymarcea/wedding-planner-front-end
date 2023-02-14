@@ -1,5 +1,5 @@
 const Photo = () => {
-  return <h1>Photo</h1>;
+  return <h1>Upload Photos: Coming Soon!</h1>;
 };
 
 export default Photo;

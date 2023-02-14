@@ -32,7 +32,7 @@ export default class App extends React.Component {
             <button>Vision Board</button>
             <button>Upload Photos</button> */}
         </header>
-        <Router>
+        <Router className='route-link'>
           <Routes>
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/cuisine' element={<Cuisine />} />

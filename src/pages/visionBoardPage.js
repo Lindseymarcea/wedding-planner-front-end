@@ -1,5 +1,7 @@
-const VisionBoard = () => {
-  return <h1>Vision Board</h1>;
+import './/visionBoard.css';
+
+const visionBoard = () => {
+  return <h1 id='coming-soon'>Vision Board: Coming Soon!</h1>;
 };
 
-export default VisionBoard;
+export default visionBoard;

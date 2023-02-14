@@ -20,7 +20,7 @@ export default class Playlist extends React.Component {
   // update input tag- mapping to correct handle change
 
   handleSubmit(event) {
-    console.log('Hello');
+    alert('Playlist Selection Submitted: ');
     event.preventDefault();
 
     const user = {

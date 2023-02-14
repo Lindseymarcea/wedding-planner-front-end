@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 export default class GiftRegistry extends React.Component {
   constructor(props) {
@@ -23,8 +24,12 @@ export default class GiftRegistry extends React.Component {
         <ul>
           {giftRegistry.map((item, i) => (
             <li key={i}>
-              {item.title} - {item.description} - {item.price} - {item.link} -{' '}
-              {item.bought}
+              {item.title}
+              <li>{item.description}</li>
+              <li>{item.price}</li>
+              <li>
+                "{item.link}"<li>{item.bought}</li>
+              </li>
             </li>
           ))}
         </ul>
