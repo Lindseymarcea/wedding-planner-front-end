@@ -18,5 +18,12 @@ link {
 
 .route-link {
   color: orange;
+  background-color: aqua;
 }
 
+.center {
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

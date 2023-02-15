@@ -40,8 +40,10 @@ export default class Guestlist extends React.Component {
           </label>
         </form>
         <p> Will you be blessing us with your presence?</p>
-        <input type='submit' value='Yes' />
-        <input type='submit' value='No' />
+        <p className='buttons'>
+          <input type='submit' value='Yes' />
+          <input type='submit' value='No' />
+        </p>
         {/* <button type='submit'>Yes</button>
         <button type='submit'>No</button> */}
       </div>

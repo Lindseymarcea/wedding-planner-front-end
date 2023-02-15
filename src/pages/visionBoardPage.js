@@ -1,7 +1,7 @@
-import './/visionBoard.css';
+import './visionBoard.css';
 
 const visionBoard = () => {
-  return <h1 id='coming-soon'>Vision Board: Coming Soon!</h1>;
+  return <div id='coming-soon'>Vision Board: Coming Soon!</div>;
 };
 
 export default visionBoard;

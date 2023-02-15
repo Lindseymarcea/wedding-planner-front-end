@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import './taskList.css';
+import './taskList.css';
 
 export default class TaskList extends React.Component {
   // constructor(props) {

@@ -1,3 +1,7 @@
 #header {
     font-size: larger;
 }
+
+select {
+    text-align: center;
+}

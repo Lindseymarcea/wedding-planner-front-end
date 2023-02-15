@@ -1,8 +1,10 @@
-const Photo = () => {
-  return <h1>Upload Photos: Coming Soon!</h1>;
+import './photo.css';
+
+const photo = () => {
+  return <div id='coming-soon'>Upload Memories: Coming Soon!</div>;
 };
 
-export default Photo;
+export default photo;
 // import React from 'react';
 // import ImageUploader from 'react-images-uploading';
 
